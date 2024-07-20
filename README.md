@@ -8,11 +8,11 @@ Commands to create EKS Cluster
 
 **command 2:** aws eks update-kubeconfig --name shivani --region ap-south-1 ( adding kubectl commands with cluster name & region)
 
-**command 3:** eksctl create fargateprofile --cluster shivani --region ap-south-1 --name venkkat-alb-sample-app --namespace game-2048 ( To create a new fargate profile for nee name space)
+**command 3:** eksctl create fargateprofile --cluster shivani --region ap-south-1 --name Venkat-alb-sample-app --namespace game-2048 ( To create a new fargate profile for nee namespace)
 
 **command 4:** kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/examples/2048/2048_full.yaml (To deploy deployment file & serive file and the ingress at a time)
 
-**command 5:** eksctl utils associate-iam-oidc-provider --cluster shivani --region ap-south-1 --approve (this is pre-requities to install alb ingress controller)
+**command 5:** eksctl utils associate-iam-oidc-provider --cluster shivani --region ap-south-1 --approve (this is pre-requisites to install alb ingress controller)
 
 **command 6:** curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json (To grant all permisiion woth policies)
 
@@ -31,3 +31,7 @@ Commands to create EKS Cluster
 **command 11:** kubectl get deployment -n kube-system aws-load-balancer-controller (To install AWS Load Balancer controller)
 
 **command 12**: eksctl delete cluster --name shivani --region ap-south-1 ( To delete the cluster)
+
+**command 15** KUBE_EDITOR="vim" kubectl edit deploy/aws-load-balancer-controller -n kube-system (To dubug the issue)
+
+**command 16** aws cloudformation delete-stack --stack-name eksctl-Venkat-EKS-2-cluster (To delte CFT stack)
